@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVault Pro | Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Contact Page Specific Enhancements */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .contact-info-card h2 {
+            margin-bottom: 20px;
+            color: #1e1b4b;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .info-item .icon {
+            font-size: 24px;
+            margin-right: 15px;
+            background: #e0e7ff;
+            padding: 10px;
+            border-radius: 12px;
+            color: #4f46e5;
+        }
+
+        .info-item p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        .info-item a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .map-container {
+            margin-top: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* Adjust static-content to fit grid nicely */
+        .contact-wrapper .static-content {
+            margin: 0;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <a href="index.html" class="logo">⚡ EduVault Pro</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Wrapper Layout -->
+    <div class="contact-wrapper">
+        
+        <!-- Left Side: Interactive Contact Form -->
+        <div class="static-content">
+            <h2>Get in Touch</h2>
+            <p>Have specific summaries or homework worksheets you want added to EduVault? Fill out the submission form below.</p>
+            
+            <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+                <div class="form-group">
+                    <label>FULL NAME</label>
+                    <input type="text" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" required placeholder="name@student.com">
+                </div>
+                <div class="form-group">
+                    <label>Your Request / Feedback</label>
+                    <textarea rows="4" required placeholder="Which subject notes do you want us to add?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Right Side: Connect Info & College Campus Map Location -->
+        <div class="contact-info-card">
+            <h2>Connect With Us</h2>
+            <p style="color: #64748b; margin-bottom: 25px;">Feel free to reach out directly through our student portal channels.</p>
+            
+            <div class="info-item">
+                <span class="icon">✉️</span>
+                <div>
+                    <strong>Email Support</strong>
+                    <p><a href="mailto:support@eduvaultpro.com">support@eduvaultpro.com</a></p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">🌐</span>
+                <div>
+                    <strong>GitHub Portal</strong>
+                    <p><a href="https://github.com" target="_blank">://github.com</a></p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <div>
+                    <strong>Campus Hub</strong>
+                    <p>Ahmedabad, Gujarat, India</p>
+                </div>
+            </div>
+
+            <!-- Embedded Placeholder for Student Campus Map Zone -->
+            <div class="map-container">
+                <iframe 
+                    src="https://share.google/S5xcut4T8mOpFQGZs//.com" 
+                    width="100%" 
+                    height="200" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Persistent Global Footer -->
+    <footer>
+        <p>&copy; 2026 EduVault Repository. Developed proudly for academic excellence.</p>
+    </footer>
+
+</body>
+</html>

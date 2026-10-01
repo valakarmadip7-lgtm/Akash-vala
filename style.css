@@ -1,0 +1,319 @@
+/* ================= GLOBAL LAYOUT & STYLING RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2d3748;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= HEADER & NAV INTERACTIVE EFFECTS ================= */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Base Logo styling with smooth cubic transition curve */
+header .logo {
+    font-size: 24px;
+    font-weight: 800;
+    background: linear-gradient(45deg, #4f46e5, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+}
+
+/* ✨ Logo Hover State: Triggers scaling up and an elegant background glow */
+header .logo:hover {
+    transform: scale(1.05); /* Scales the logo up by 5% */
+    filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.5)); /* Adds a neon reflection behind text */
+}
+
+/* Base Navigation Link styling */
+header nav a {
+    color: #4a5568;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    position: relative;
+    padding: 4px 0;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* ✨ Nav Link Hover State: Shifting the active font color and floating text upwards */
+header nav a:hover, header nav a.active {
+    color: #4f46e5;
+    transform: translateY(-2px); /* Moves link 2px up on the Y-axis */
+}
+
+/* Creating a hidden custom underline using pseudo-elements */
+header nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Keeps it completely hidden initially */
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, #4f46e5, #06b6d4);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ✨ Underline Hover State: Smoothly expands the custom border bar from left to right */
+header nav a:hover::after, header nav a.active::after {
+    width: 100%; /* Expands the bar across full text width */
+}
+
+/* ================= DYNAMIC HERO INTERFACE ================= */
+.hero-section {
+    background: radial-gradient(circle at top right, #312e81, #1e1b4b);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.hero-section h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hero-section p {
+    color: #c7d2fe;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    outline: none;
+    backdrop-filter: blur(5px);
+}
+
+.search-box input::placeholder {
+    color: #a5b4fc;
+}
+
+.search-box input:focus {
+    background: white;
+    color: #1e1b4b;
+}
+
+/* ================= GRID FRAMEWORK FOR SUBJECT CARDS ================= */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(79, 70, 229, 0.1);
+}
+
+/* Elegant Subject Tags & Category Badges */
+.badge {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+.badge.tech { background: #e0e7ff; color: #4338ca; }
+.badge.math { background: #fee2e2; color: #b91c1c; }
+.badge.lang { background: #ccfbf1; color: #0f766e; }
+.badge.sci { background: #fef3c7; color: #d97706; }
+.badge.biz { background: #f3e8ff; color: #7c3aed; }
+.badge.hist { background: #e2e8f0; color: #475569; }
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+.card p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Styled Premium Download Button */
+.btn {
+    display: block;
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    color: white;
+    text-decoration: none;
+    padding: 11px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ================= STATIC PAGES CONTENT CONTAINER ================= */
+.static-content {
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.static-content h2 {
+    margin-bottom: 15px;
+    color: #1e1b4b;
+}
+
+.static-content p {
+    line-height: 1.7;
+    color: #4a5568;
+    margin-bottom: 15px;
+}
+
+/* ================= INTERACTIVE INPUT FORMS ================= */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+}
+
+.submit-btn {
+    background: #4f46e5;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ================= CONTACT PAGE MULTI-COLUMN INTERACTION ================= */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.contact-info-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.contact-info-card h2 {
+    margin-bottom: 20px;
+    color: #1e1b4b;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.info-item .icon {
+    font-size: 24px;
+    margin-right: 15px;
+    background: #e0e7ff;
+    padding: 10px;
+    border-radius: 12px;
+    color: #4f46e5;
+}
+
+.info-item p {
+    font-size: 15px;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+.info-item a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.map-container {
+    margin-top: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+}
+
+.contact-wrapper .static-content {
+    margin: 0;
+    max-width: 100%;
+}
+
+/* ================= GLOBAL RESPONSIVE FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #0f172a;
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: auto;
+}
